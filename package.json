@@ -27,11 +27,8 @@
     "start": "$(node bin/config.js) && npm run generate && react-scripts start",
     "build": "$(node bin/config.js) && npm run generate && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
-  "homepage": "https://rnsk.github.io/iemeshi/",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -52,7 +49,6 @@
     "@types/react-router-dom": "^5.1.4",
     "axios": "^0.19.2",
     "csv-parse": "^4.8.8",
-    "gh-pages": "^2.2.0",
     "node-sass": "^4.13.1",
     "yaml": "^1.9.1"
   }
