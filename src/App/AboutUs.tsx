@@ -19,8 +19,7 @@ const Content = () => {
           <div className="logo">イエメシ</div>
         </div>
 
-        <p>イエメシはテイクアウトに対応しているお店を紹介するためのアプリで、<a href="https://github.com/iemeshi/app">オープンソース</a>で開発されています。</p>
-        <p>掲載されている店舗は、コミュニティのみなさんによってメンテナンスされています。</p>
+        <p>イエメシはテイクアウトに対応しているお店を紹介するためのアプリです。<a href="https://github.com/iemeshi/app">オープンソース</a>で開発されています。</p>
 
         <h2>{config.title}版について</h2>
         <p>{config.title}版は以下のリポジトリで開発されています。</p>
@@ -36,8 +35,18 @@ const Content = () => {
         }
 
         <h2>イエメシに関するお問い合わせ</h2>
-        <p><a href="https://geolonia.com/contact/">イエメシに関するお問い合わせはこちらからどうぞ。</a></p>
-        <p>掲載店舗に関するお問い合わせにつきましては、ご対応いたしかねますのであらかじめご了承ください。</p>
+
+        {config.contact_url?
+          <>
+            <p>{config.title}版に関するお問い合わせはお問い合わせフォームよりお願いいたします。</p>
+            <p><a href={config.contact_url}>お問い合わせフォーム</a></p>
+          </>
+          :
+          <></>
+        }
+
+        <p>イエメシのマップ情報は【Geolonia】を使用しています。【Geolonia】に関するお問い合わせは<a href="https://geolonia.com/contact/">こちら</a>からどうぞ。</p>
+        <p>掲載されている情報に関しましては、各店舗様にお問い合わせください。</p>
 
         {config.form_url?
           <>
