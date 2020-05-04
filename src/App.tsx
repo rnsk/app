@@ -4,6 +4,7 @@ import "./App.scss";
 
 import Home from './App/Home'
 import List from './App/List'
+import Galleries from './App/Galleries'
 import AboutUs from './App/AboutUs'
 
 import Tabbar from './App/Tabbar'
@@ -69,6 +70,7 @@ const App = () => {
         <HashRouter>
           <Route exact path="/"><Home data={shopList} /></Route>
           <Route exact path="/list"><List data={shopList} /></Route>
+          <Route exact path="/gallery"><Galleries data={shopList} /></Route>
           <Route exact path="/about" component={AboutUs} />
         </HashRouter>
       </div>
