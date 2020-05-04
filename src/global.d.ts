@@ -17,5 +17,13 @@ declare namespace Iemeshi {
     '公式サイト': string
   }
 
+  type PhotoData = {
+    index: number;
+    src: string;
+    width: number;
+    height: number;
+    shop: number;
+  }
+
   type LngLat = [number, number]
 }
