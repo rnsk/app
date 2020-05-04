@@ -77,7 +77,7 @@ const Content = (props: Props) => {
 }, [props.data]);
 
   return (
-    <div className="photo-list">
+    <div className="gallery">
       <Gallery photos={photoList} onClick={clickHandler} />
       {shop?
         <Shop shop={shop} close={closeHandler} />
