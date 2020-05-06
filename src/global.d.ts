@@ -14,6 +14,7 @@ declare namespace Iemeshi {
     '電話番号': string;
     'Instagram': string;
     'Twitter': string;
+    'Facebook': string;
     '公式サイト': string
   }
 
