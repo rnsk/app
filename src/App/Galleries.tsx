@@ -71,7 +71,7 @@ const Content = (props: Props) => {
   }
 
   const clickHandler = useCallback((event, { photo, index }) => {
-    if (photo.shop) {
+    if (isFinite(photo.shop)) {
       setShop(props.data[photo.shop])
     }
 }, [props.data]);
