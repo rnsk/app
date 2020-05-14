@@ -3,6 +3,7 @@ import { HashRouter, Route } from "react-router-dom";
 import "./App.scss";
 
 import Home from './App/Home'
+import Special from './App/Special'
 import List from './App/List'
 import Galleries from './App/Galleries'
 import AboutUs from './App/AboutUs'
@@ -75,6 +76,7 @@ const App = () => {
       <div className="app-body">
         <HashRouter>
           <Route exact path="/"><Home data={shopList} /></Route>
+          <Route exact path="/special" component={Special} />
           <Route exact path="/list"><List data={shopList} /></Route>
           <Route exact path="/gallery"><Galleries data={shopList} /></Route>
           <Route exact path="/about" component={AboutUs} />
