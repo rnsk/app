@@ -34,6 +34,10 @@ const Content = () => {
           <></>
         }
 
+        <h2>各地域版について</h2>
+        <p>イエメシは全国各地で展開されています。対応地域は以下のページをご覧ください。</p>
+        <p><a href="https://iemeshi.jp/" target="_blank">https://iemeshi.jp/</a></p>
+
         <h2>イエメシに関するお問い合わせ</h2>
 
         {config.contact_url?
