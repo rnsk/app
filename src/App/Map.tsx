@@ -60,20 +60,6 @@ const Content = (props: Props) => {
       },
     })
 
-    mapObject.on('mouseenter', 'shop-points', () => {
-      mapObject.getCanvas().style.cursor = 'pointer'
-    })
-
-    mapObject.on('mouseleave', 'shop-points', () => {
-      mapObject.getCanvas().style.cursor = ''
-    })
-
-    mapObject.on('click', 'shop-points', (event: any) => {
-      if (!event.features[0].properties.cluster) {
-        setShop(event.features[0].properties)
-      }
-    })
-
     mapObject.addLayer({
       id: 'shop-symbol',
       type: 'symbol',
@@ -89,12 +75,42 @@ const Content = (props: Props) => {
       layout: {
         'text-field': "{店名}",
         'text-font': ['Noto Sans Regular'],
+        'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
+        'text-radial-offset': 0.5,
+        'text-justify': 'auto',
         'text-size': 12,
         'text-anchor': 'top',
         'text-max-width': 12,
-        'text-offset': [0, 1.2],
         'text-allow-overlap': false,
       },
+    })
+
+    mapObject.on('mouseenter', 'shop-points', () => {
+      mapObject.getCanvas().style.cursor = 'pointer'
+    })
+
+    mapObject.on('mouseleave', 'shop-points', () => {
+      mapObject.getCanvas().style.cursor = ''
+    })
+
+    mapObject.on('mouseenter', 'shop-symbol', () => {
+      mapObject.getCanvas().style.cursor = 'pointer'
+    })
+
+    mapObject.on('mouseleave', 'shop-symbol', () => {
+      mapObject.getCanvas().style.cursor = ''
+    })
+
+    mapObject.on('click', 'shop-points', (event: any) => {
+      if (!event.features[0].properties.cluster) {
+        setShop(event.features[0].properties)
+      }
+    })
+
+    mapObject.on('click', 'shop-symbol', (event: any) => {
+      if (!event.features[0].properties.cluster) {
+        setShop(event.features[0].properties)
+      }
     })
 
     setCluster(mapObject)
@@ -109,7 +125,7 @@ const Content = (props: Props) => {
     // @ts-ignore
     const { geolonia } = window;
 
-    const style = 'geolonia/basic'
+    const style = 'geolonia/gsi'
 
     const geojson = toGeoJson(props.data)
     const bounds = geojsonExtent(geojson)
@@ -118,11 +134,10 @@ const Content = (props: Props) => {
       container: mapNode.current,
       style: style,
       bounds: bounds,
-      fitBoundsOptions: {padding: 100}
+      fitBoundsOptions: {padding: 50}
     });
 
     const onMapLoad = () => {
-      map.setLayoutProperty('building', 'visibility', 'none')
       map.setLayoutProperty('poi', 'visibility', 'none')
       map.setLayoutProperty('poi-primary', 'visibility', 'none')
       setMapObject(map)
@@ -135,12 +150,7 @@ const Content = (props: Props) => {
     // attach
     map.on('load', onMapLoad)
 
-    const { screen } = window
-    if (screen && screen.orientation) {
-      window.screen.orientation.addEventListener('change', orienteationchangeHandler)
-    } else {
-      window.addEventListener('orientationchange', orienteationchangeHandler)
-    }
+    window.addEventListener('orientationchange', orienteationchangeHandler)
 
     return () => {
       // detach to prevent memory leak
