@@ -22,7 +22,7 @@ const Content = () => {
         <p>イエメシはテイクアウトに対応しているお店を紹介するためのアプリです。<a href="https://github.com/iemeshi/app">オープンソース</a>で開発されています。</p>
 
         <h2>{config.title}版について</h2>
-        <p>{config.title}版は以下のリポジトリで開発されています。</p>
+        <p>{config.title}版は{config.developer}が開発しています。ソースコードは以下のリポジトリに公開しています。</p>
         <p><a href={config.repository}>{config.repository}</a></p>
 
         {config.form_url?
