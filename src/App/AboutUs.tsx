@@ -19,10 +19,10 @@ const Content = () => {
           <div className="logo">イエメシ</div>
         </div>
 
-        <p>イエメシはテイクアウトに対応しているお店を紹介するためのアプリです。<a href="https://github.com/iemeshi/app">オープンソース</a>で開発されています。</p>
+        <p>イエメシはテイクアウトに対応しているお店を紹介する地図アプリです。ソースコードは<a href="https://github.com/iemeshi/app">公開</a>されており、誰でも自由に利用することができます。</p>
 
         <h2>{config.title}版について</h2>
-        <p>{config.title}版は{config.developer}が開発しています。ソースコードは以下のリポジトリに公開しています。</p>
+        <p>{config.title}版は{config.developer}が開発し、ソースコードは以下のリポジトリに公開しています。</p>
         <p><a href={config.repository}>{config.repository}</a></p>
 
         {config.form_url?
